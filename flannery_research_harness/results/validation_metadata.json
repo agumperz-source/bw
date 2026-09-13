@@ -1,0 +1,24 @@
+{
+  "batch_size": 40,
+  "checks": [
+    "generator_reproducibility",
+    "sample_uniqueness",
+    "table_shape_5x4",
+    "trick_range_0_13",
+    "single_vs_batch_parity_10",
+    "thread_determinism_50_1v2v4",
+    "clockwise_rotation_symmetry_25"
+  ],
+  "combined_sha256": "19a0a2373fbb3f3d812bf20436075da9e667c4d4e00ad3f251fa6ec7cecc45dd",
+  "dds_commit": "fe6a6581a13535779eda5d9141aa704b3f6c8965",
+  "dds_tag": "v3.1.0",
+  "deal_count": 1000,
+  "deals_sha256": "0eb3052b0f8b11dd75fc5ac4b89adef5055a8eba1282eeb93b9f9b4bc8d17309",
+  "elapsed_seconds": 112.082136,
+  "primary_max_threads": 2,
+  "python_version": "3.14.2",
+  "schema_version": 1,
+  "seed": 20260913,
+  "status": "PASS",
+  "tables_sha256": "afc8586d40db82590713e0736e6ad9d32e373e20311b44470bea9e4b7ac4051e"
+}
