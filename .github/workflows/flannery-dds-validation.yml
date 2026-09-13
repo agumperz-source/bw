@@ -54,7 +54,7 @@ jobs:
           bazelisk run -c opt //python:flannery_validate -- \
             --count 1000 \
             --seed 20260913 \
-            --batch-size 100 \
+            --batch-size 40 \
             --threads 2 \
             --out "$GITHUB_WORKSPACE/flannery_research_harness/results"
 
