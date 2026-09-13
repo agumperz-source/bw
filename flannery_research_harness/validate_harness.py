@@ -89,8 +89,12 @@ def solve_batches(deals: Sequence[str], batch_size: int, max_threads: int):
             trump_filter=[0, 0, 0, 0, 0],
             max_threads=max_threads,
         )
-        if result["no_of_boards"] != len(chunk) or len(result["tables"]) != len(chunk):
-            raise AssertionError("DDS batch result count mismatch")
+        # DDS's no_of_boards field is an internal CalcAllTables result field;
+        # the Python wrapper deliberately sizes `tables` from native_deals.no_of_tables.
+        if len(result["tables"]) != len(chunk):
+            raise AssertionError(
+                f"DDS returned {len(result['tables'])} tables for {len(chunk)} inputs"
+            )
         tables.extend(table["res_table"] for table in result["tables"])
     return tables
 
@@ -143,7 +147,6 @@ def write_outputs(out_dir: Path, deals, tables, metadata: dict) -> None:
     out_dir.mkdir(parents=True, exist_ok=True)
     deals_text = "\n".join(deals) + "\n"
     (out_dir / "validation_deals.pbn").write_text(deals_text, encoding="utf-8")
-
     columns = ["board", "pbn"] + [f"{strain}_{seat}" for strain in STRAINS for seat in SEATS]
     with (out_dir / "validation_tables.csv").open("w", newline="", encoding="utf-8") as f:
         writer = csv.DictWriter(f, fieldnames=columns)
@@ -154,7 +157,6 @@ def write_outputs(out_dir: Path, deals, tables, metadata: dict) -> None:
                 for seat_i, seat in enumerate(SEATS):
                     row[f"{strain}_{seat}"] = table[strain_i][seat_i]
             writer.writerow(row)
-
     table_text = json.dumps(tables, separators=(",", ":"), ensure_ascii=True)
     metadata = dict(metadata)
     metadata["deals_sha256"] = digest(deals_text)
