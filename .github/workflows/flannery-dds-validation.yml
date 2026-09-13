@@ -1,0 +1,71 @@
+name: Flannery DDS harness validation
+
+on:
+  push:
+    branches: [flannery-research-harness]
+    paths:
+      - "flannery_research_harness/validate_harness.py"
+      - "flannery_research_harness/README.md"
+      - ".github/workflows/flannery-dds-validation.yml"
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Check out harness branch
+        uses: actions/checkout@v6
+        with:
+          ref: flannery-research-harness
+
+      - name: Check out DDS 3.1.0 source
+        run: git clone --depth 1 --branch v3.1.0 https://github.com/dds-bridge/dds.git dds-upstream
+
+      - name: Set up Bazelisk
+        uses: bazel-contrib/setup-bazel@0.19.0
+        with:
+          bazelisk-version: "1.29.0"
+
+      - name: Add validation target to DDS Bazel graph
+        run: |
+          cp flannery_research_harness/validate_harness.py dds-upstream/python/flannery_validate.py
+          cat >> dds-upstream/python/BUILD.bazel <<'EOF'
+
+          py_binary(
+              name = "flannery_validate",
+              srcs = ["flannery_validate.py"],
+              deps = [":dds3_lib"],
+          )
+          EOF
+
+      - name: Run upstream DDS Python regression tests
+        working-directory: dds-upstream
+        run: bazelisk test //python:calc_tables_test //python:calc_tables_regression_test
+
+      - name: Run 1000-deal harness validation
+        working-directory: dds-upstream
+        run: |
+          export DDS_TAG=v3.1.0
+          export DDS_GIT_SHA="$(git rev-parse HEAD)"
+          bazelisk run -c opt //python:flannery_validate -- \
+            --count 1000 \
+            --seed 20260913 \
+            --batch-size 100 \
+            --threads 2 \
+            --out "$GITHUB_WORKSPACE/flannery_research_harness/results"
+
+      - name: Record validation outputs on harness branch
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add flannery_research_harness/results
+          if git diff --cached --quiet; then
+            echo "Validation outputs unchanged."
+          else
+            git commit -m "Record DDS 3.1.0 harness validation results"
+            git push origin HEAD:flannery-research-harness
+          fi
