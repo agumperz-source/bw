@@ -11,7 +11,7 @@
       "results.csv"
     ],
     "sha256": {
-      "results.csv": "aa9faa2b2e51d44a4a1a65742b0162a58e8ba48a4486d4a795063596fa5adc7e"
+      "results.csv": "89c3aec482604e20f56ee09781ac7770b29eaf526c93a88a8dccf51c32e7b3d0"
     }
   },
   "flannery_definition": {
@@ -37,10 +37,51 @@
       }
     }
   },
-  "notes": [],
+  "notes": [
+    "Minimum-hand subset uses the same 250,000-deal sample and seed as the main RQ1 run. Minimum = 4S-5H-2D-2C with 11-13 HCP, or 4S-5H-1D-3C / 4S-5H-3D-1C with 11-12 HCP."
+  ],
   "ordinary_one_heart_baseline": "5+ hearts, 11-21 HCP, not eligible for stronger opening; approximated here by heart length and HCP only.",
   "research_id": "RQ1",
   "results": {
+    "minimum_qualifying_hands": {
+      "count": 3989,
+      "proportion_of_flannery": 0.41914468845224334,
+      "definition": "4S-5H-2D-2C with 11-13 HCP, or 4S-5H-1D-3C / 4S-5H-3D-1C with 11-12 HCP.",
+      "by_shape": [
+        {
+          "shape": "4S-5H-1D-3C",
+          "count": 945,
+          "proportion_of_flannery": 0.09929662603761794
+        },
+        {
+          "shape": "4S-5H-2D-2C",
+          "count": 2091,
+          "proportion_of_flannery": 0.21971209414731533
+        },
+        {
+          "shape": "4S-5H-3D-1C",
+          "count": 953,
+          "proportion_of_flannery": 0.10013596826731008
+        }
+      ],
+      "by_hcp": [
+        {
+          "hcp": "11 HCP",
+          "count": 1813,
+          "proportion_of_flannery": 0.19050120836398025
+        },
+        {
+          "hcp": "12 HCP",
+          "count": 1593,
+          "proportion_of_flannery": 0.16738467900073552
+        },
+        {
+          "hcp": "13 HCP",
+          "count": 583,
+          "proportion_of_flannery": 0.06125880108752758
+        }
+      ]
+    },
     "ordinary_one_heart_removed": {
       "confidence_interval_95": {
         "high": 0.11100958175213436,
