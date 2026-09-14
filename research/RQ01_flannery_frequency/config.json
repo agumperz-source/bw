@@ -2,17 +2,29 @@
   "schema_version": 1,
   "research_id": "RQ1",
   "seed": 20260913,
-  "sample_size": null,
+  "deal_count": 250000,
+  "sample_size": 1000000,
   "flannery_definition": {
-    "status": "placeholder",
-    "description": "Freeze exact HCP range, allowed shapes, vulnerability/seat assumptions if any, and exclusions before running.",
-    "hcp_range": null,
-    "allowed_shapes": [],
+    "status": "frozen_for_first_simulation",
+    "description": "A hand is appropriate for Flannery only with 5S-6H, 4S-6H, or 4S-5H, with hearts longer than spades and the pattern-specific strength requirements below.",
+    "patterns": {
+      "5S-6H": {
+        "hcp_range": [8, 10],
+        "minimum_controls": 2,
+        "controls": "Ace=2, king=1, singleton king=0."
+      },
+      "4S-6H": {
+        "hcp_range": [9, 12]
+      },
+      "4S-5H": {
+        "hcp_range": [11, 15]
+      }
+    },
     "exclusions": []
   },
   "ordinary_one_heart_baseline": {
-    "status": "placeholder",
-    "description": "Define the normal 1H opening population against which Flannery removal is measured."
+    "status": "frozen_for_first_simulation",
+    "description": "Ordinary 1H opening = 5+ hearts, 11-21 HCP, not eligible for a stronger opening, with no special exclusions beyond HCP and heart length. In this first frequency simulation, this is implemented as 5+ hearts and 11-21 HCP."
   },
   "harness_provenance": {
     "branch": "flannery-research-harness",
@@ -21,13 +33,15 @@
   },
   "dds_provenance": {
     "dds_tag": "v3.1.0",
-    "dds_commit": "fe6a6581a13535779eda5d9141aa704b3f6c8965"
+    "dds_commit": "fe6a6581a13535779eda5d9141aa704b3f6c8965",
+    "used_in_this_experiment": false
   },
   "confidence_interval": {
     "level": 0.95,
-    "method": "placeholder"
+    "method": "Wilson score interval"
   },
   "outputs": {
-    "summary_json": "summary.json"
+    "summary_json": "summary.json",
+    "results_csv": "results.csv"
   }
 }

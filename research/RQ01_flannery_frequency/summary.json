@@ -1,35 +1,134 @@
 {
-  "schema_version": 1,
-  "research_id": "RQ1",
-  "status": "not_run",
-  "config_sha256": null,
-  "run_started_at": null,
-  "run_finished_at": null,
-  "sample_size": null,
-  "seed": null,
-  "flannery_definition": null,
-  "ordinary_one_heart_baseline": null,
-  "results": {
-    "random_hand_frequency": {
-      "qualifying_hands": null,
-      "total_hands": null,
-      "proportion": null,
-      "one_in_n_hands": null,
-      "confidence_interval_95": null
-    },
-    "shape_distribution": [],
-    "strength_distribution": [],
-    "ordinary_one_heart_removed": {
-      "removed_count": null,
-      "ordinary_one_heart_count": null,
-      "proportion": null,
-      "confidence_interval_95": null
+  "confidence_interval": {
+    "level": 0.95,
+    "method": "Wilson score interval"
+  },
+  "deal_count": 250000,
+  "elapsed_seconds": 10.496646800020244,
+  "evidence": {
+    "output_files": [
+      "summary.json",
+      "results.csv"
+    ],
+    "sha256": {
+      "results.csv": "aa9faa2b2e51d44a4a1a65742b0162a58e8ba48a4486d4a795063596fa5adc7e"
     }
   },
-  "evidence": {
-    "input_files": [],
-    "output_files": [],
-    "sha256": {}
+  "flannery_definition": {
+    "patterns": {
+      "4S-5H": {
+        "hcp": [
+          11,
+          15
+        ]
+      },
+      "4S-6H": {
+        "hcp": [
+          9,
+          12
+        ]
+      },
+      "5S-6H": {
+        "controls": "2+; ace=2, king=1 except singleton kings count 0",
+        "hcp": [
+          8,
+          10
+        ]
+      }
+    }
   },
-  "notes": []
+  "notes": [],
+  "ordinary_one_heart_baseline": "5+ hearts, 11-21 HCP, not eligible for stronger opening; approximated here by heart length and HCP only.",
+  "research_id": "RQ1",
+  "results": {
+    "ordinary_one_heart_removed": {
+      "confidence_interval_95": {
+        "high": 0.11100958175213436,
+        "low": 0.10658727762646274
+      },
+      "ordinary_one_heart_count": 76173,
+      "percentage": 10.877870111456815,
+      "proportion": 0.10877870111456815,
+      "removed_count": 8286
+    },
+    "random_hand_frequency": {
+      "confidence_interval_95": {
+        "high": 0.009709185610726449,
+        "low": 0.009328582715291184
+      },
+      "one_in_n_hands": 105.07512871703268,
+      "percentage": 0.9517,
+      "proportion": 0.009517,
+      "qualifying_hands": 9517,
+      "total_hands": 1000000
+    },
+    "shape_distribution": [
+      {
+        "count": 7374,
+        "proportion_of_flannery": 0.7748239991593989,
+        "shape": "4S-5H"
+      },
+      {
+        "count": 1865,
+        "proportion_of_flannery": 0.19596511505726594,
+        "shape": "4S-6H"
+      },
+      {
+        "count": 278,
+        "proportion_of_flannery": 0.029210885783335083,
+        "shape": "5S-6H"
+      }
+    ],
+    "strength_distribution": [
+      {
+        "count": 74,
+        "hcp": "8 HCP",
+        "proportion_of_flannery": 0.007775559525060418
+      },
+      {
+        "count": 586,
+        "hcp": "9 HCP",
+        "proportion_of_flannery": 0.06157402542818115
+      },
+      {
+        "count": 571,
+        "hcp": "10 HCP",
+        "proportion_of_flannery": 0.05999789849742566
+      },
+      {
+        "count": 2496,
+        "hcp": "11 HCP",
+        "proportion_of_flannery": 0.2622675212777136
+      },
+      {
+        "count": 2191,
+        "hcp": "12 HCP",
+        "proportion_of_flannery": 0.23021960701901859
+      },
+      {
+        "count": 1464,
+        "hcp": "13 HCP",
+        "proportion_of_flannery": 0.15382998844173584
+      },
+      {
+        "count": 1220,
+        "hcp": "14 HCP",
+        "proportion_of_flannery": 0.12819165703477986
+      },
+      {
+        "count": 915,
+        "hcp": "15 HCP",
+        "proportion_of_flannery": 0.0961437427760849
+      }
+    ]
+  },
+  "run_finished_at": "2026-09-14T03:12:55.371149+00:00",
+  "run_started_at": "2026-09-14T03:12:44.874468+00:00",
+  "runtime": {
+    "python_version": "3.12.10"
+  },
+  "sample_size": 1000000,
+  "schema_version": 1,
+  "seed": 20260913,
+  "status": "complete"
 }
