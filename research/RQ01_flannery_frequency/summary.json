@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "research_id": "RQ1",
+  "status": "not_run",
+  "config_sha256": null,
+  "run_started_at": null,
+  "run_finished_at": null,
+  "sample_size": null,
+  "seed": null,
+  "flannery_definition": null,
+  "ordinary_one_heart_baseline": null,
+  "results": {
+    "random_hand_frequency": {
+      "qualifying_hands": null,
+      "total_hands": null,
+      "proportion": null,
+      "one_in_n_hands": null,
+      "confidence_interval_95": null
+    },
+    "shape_distribution": [],
+    "strength_distribution": [],
+    "ordinary_one_heart_removed": {
+      "removed_count": null,
+      "ordinary_one_heart_count": null,
+      "proportion": null,
+      "confidence_interval_95": null
+    }
+  },
+  "evidence": {
+    "input_files": [],
+    "output_files": [],
+    "sha256": {}
+  },
+  "notes": []
+}

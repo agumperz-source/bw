@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "research_id": "RQ1",
+  "seed": 20260913,
+  "sample_size": null,
+  "flannery_definition": {
+    "status": "placeholder",
+    "description": "Freeze exact HCP range, allowed shapes, vulnerability/seat assumptions if any, and exclusions before running.",
+    "hcp_range": null,
+    "allowed_shapes": [],
+    "exclusions": []
+  },
+  "ordinary_one_heart_baseline": {
+    "status": "placeholder",
+    "description": "Define the normal 1H opening population against which Flannery removal is measured."
+  },
+  "harness_provenance": {
+    "branch": "flannery-research-harness",
+    "validated_commit": "612c5abddef22209b982e7da88d585aac372a9f8",
+    "validation_combined_sha256": "19a0a2373fbb3f3d812bf20436075da9e667c4d4e00ad3f251fa6ec7cecc45dd"
+  },
+  "dds_provenance": {
+    "dds_tag": "v3.1.0",
+    "dds_commit": "fe6a6581a13535779eda5d9141aa704b3f6c8965"
+  },
+  "confidence_interval": {
+    "level": 0.95,
+    "method": "placeholder"
+  },
+  "outputs": {
+    "summary_json": "summary.json"
+  }
+}
