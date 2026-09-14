@@ -1,0 +1,137 @@
+{
+  "confidence_interval": {
+    "level": 0.95,
+    "method": "Wilson score interval"
+  },
+  "counts": {
+    "condition:heart_fit_8plus": 5678,
+    "condition:no_8card_major_fit": 2144,
+    "condition:responder_10plus_hcp": 4458,
+    "condition:responder_13plus_hcp": 1936,
+    "condition:responder_3plus_hearts": 4991,
+    "condition:responder_4plus_spades": 3144,
+    "condition:responder_8plus_hcp": 6322,
+    "condition:spade_fit_8plus": 3228,
+    "heart_fit:5-0": 194,
+    "heart_fit:5-1": 1014,
+    "heart_fit:5-2": 2142,
+    "heart_fit:5-3": 2274,
+    "heart_fit:5-4": 1270,
+    "heart_fit:5-5": 415,
+    "heart_fit:5-6": 59,
+    "heart_fit:5-7": 6,
+    "heart_fit:6-0": 89,
+    "heart_fit:6-1": 400,
+    "heart_fit:6-2": 687,
+    "heart_fit:6-3": 631,
+    "heart_fit:6-4": 269,
+    "heart_fit:6-5": 60,
+    "heart_fit:6-6": 7,
+    "opener_shape:4S-5H": 7374,
+    "opener_shape:4S-6H": 1865,
+    "opener_shape:5S-6H": 278,
+    "responder_hcp:0-4": 994,
+    "responder_hcp:10-12": 2522,
+    "responder_hcp:13+": 1936,
+    "responder_hcp:5-7": 2201,
+    "responder_hcp:8-9": 1864,
+    "responder_hearts:0": 283,
+    "responder_hearts:1": 1414,
+    "responder_hearts:2": 2829,
+    "responder_hearts:3": 2905,
+    "responder_hearts:4+": 2086,
+    "responder_spades:0": 131,
+    "responder_spades:1": 947,
+    "responder_spades:2": 2375,
+    "responder_spades:3": 2920,
+    "responder_spades:4+": 3144,
+    "spade_fit:4-0": 125,
+    "spade_fit:4-1": 907,
+    "spade_fit:4-2": 2288,
+    "spade_fit:4-3": 2836,
+    "spade_fit:4-4": 2065,
+    "spade_fit:4-5": 803,
+    "spade_fit:4-6": 192,
+    "spade_fit:4-7": 22,
+    "spade_fit:4-8": 1,
+    "spade_fit:5-0": 6,
+    "spade_fit:5-1": 40,
+    "spade_fit:5-2": 87,
+    "spade_fit:5-3": 84,
+    "spade_fit:5-4": 44,
+    "spade_fit:5-5": 16,
+    "spade_fit:5-6": 1
+  },
+  "deal_count": 250000,
+  "elapsed_seconds": 6.704408699995838,
+  "evidence": {
+    "output_files": [
+      "summary.json",
+      "results.csv"
+    ],
+    "sha256": {
+      "results.csv": "3fbaa1b28f2c1c3a0c989491904f7a296fd356e78e48ae20e50c9829d45cbd95"
+    }
+  },
+  "headline_results": {
+    "heart_fit_8plus": {
+      "ci": {
+        "high": 0.6064317783853702,
+        "low": 0.5867234178180322
+      },
+      "count": 5678,
+      "proportion": 0.5966165808553116
+    },
+    "no_8card_major_fit": {
+      "ci": {
+        "high": 0.2337842529918708,
+        "low": 0.21699958553581175
+      },
+      "count": 2144,
+      "proportion": 0.22528107596931807
+    },
+    "responder_10plus_hcp": {
+      "ci": {
+        "high": 0.47846101790083173,
+        "low": 0.45841430949544615
+      },
+      "count": 4458,
+      "proportion": 0.4684249238205317
+    },
+    "responder_13plus_hcp": {
+      "ci": {
+        "high": 0.21163185731343287,
+        "low": 0.19545836423729734
+      },
+      "count": 1936,
+      "proportion": 0.20342544919617528
+    },
+    "responder_8plus_hcp": {
+      "ci": {
+        "high": 0.673704689475529,
+        "low": 0.6547326669834377
+      },
+      "count": 6322,
+      "proportion": 0.6642849637490806
+    },
+    "spade_fit_8plus": {
+      "ci": {
+        "high": 0.34875734738790937,
+        "low": 0.32973745653889036
+      },
+      "count": 3228,
+      "proportion": 0.33918251549858147
+    }
+  },
+  "method": "For each qualifying Flannery hand in the same 250,000 random deals used by RQ1, treat the opposite hand as responder and tabulate major-suit fits and responder strength.",
+  "qualifying_flannery_openers": 9517,
+  "research_id": "RQ2",
+  "run_finished_at": "2026-09-14T06:10:16.511168+00:00",
+  "run_started_at": "2026-09-14T06:10:09.809767+00:00",
+  "runtime": {
+    "python_version": "3.12.10"
+  },
+  "schema_version": 1,
+  "seed": 20260913,
+  "status": "complete"
+}
